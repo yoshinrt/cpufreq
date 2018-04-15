@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<!--MadeByWZ-->
+<TITLE>CPUFreq マニュアル</TITLE>
+</HEAD>
+<BODY BGCOLOR="white">
+
+<DIV ALIGN=RIGHT><RIGHT>
+	CPUFreq version 1<br>
+	Coryright&copy; 1998 - 2002 by Deyu Deyu Software
+</RIGHT></DIV>
+<center><h1>CPUFreq マニュアル</h1></center>
+
+<hr>
+<center>
+<h2>目次</h2>
+<table><tr><td>
+<OL>
+	<li><a href="#WhatIs">	CPUFreq とは?</a>
+	<li><a href="#Usage">	使用法</a>
+	<li><a href="#Uninst">	アンインストール</a>
+	<li><a href="#Bug">		バグ等</a>
+</OL>
+</table></center>
+
+<hr>
+<a name="WhatIs"></a>
+<h2>1. CPUFreq とは?</h2>
+　CPUFreq とは，CPU のクロック数を計測しタスクバーアイコンとして表示する，Windows 用常駐プログラムです．ウィンドウなどを作らず，邪魔にならないのが特徴です．数字の色も 16色の中から選択可能です．<br>
+　CPU のクロックを計るといっても，ベンチマークのような CPU をフル稼働させるようなものではなく，10秒毎に TSC というレジスタを読み出すだけなので，CPU にかかる負荷は，時計プログラム並に軽いです．<br>
+　Pentium 以降の CPU 必須です．
+<hr>
+<a name="Usage"></a>
+<h2>2. CPUFreq の使用法</h2>
+
+<TABLE BORDER>
+	<TR><TH COLSPAN=2>アーカイブの内容
+	<TR><TD>CPUFreq.exe	<TD>実行プログラム本体
+	<TR><TD>ReadMe.html	<TD>マニュアル ( このファイル )
+</TABLE>
+<p>
+　ただ CPUFreq.exe を実行するだけです．(^_^;) すると，画面の右下 ( タスクバーが下にある場合 ) に CPU の周波数がデジタル数字で表示されます．デジタル数字をクリックすると，メニューが現れます．
+<dl>
+	<dt>color Setting....
+	<dd>「color Setting....」を選ぶと，デジタル数字の色を選ぶダイアログが表れます．ただし，Windows 標準の 16色 ( 要するに基本的な色 ) しか使用することはできません．
+	
+	<p>
+	<dt>Close
+	<dl>「Close」を選ぶと，CPUFreq を終了します．
+</dl>
+<p>
+　また，デジタル数字の上にカーソルを持ってくると，0.001MHz 単位の正確なクロック数を表示します．
+
+<hr>
+<a name="Uninst"></a>
+<h2>3. アンインストール</h2>
+<OL>
+	<LI>アーカイブを解凍して出来たファイルをすべて削除してください．
+	<LI>レジストリエディタで，「\HKEY_CURRENT_USER\Software\DeyuDeyu\CPUFreq」以下を削除してください．色の設定を変更していない場合は，このキーがレジストリに作られていない場合もあります．
+</OL>
+
+<hr>
+<a name="Bug"></a>
+<h2>4. バグ等</h2>
+<ul>
+	<li>デジタル表示は，タスクバーアイコンを 2個並べて表示させているので，タスクバーが画面上か下以外 ( すなわち，タスクバーを立てて使っている ) の場合は，デジタル表示がずれます．
+	<li>486 以前の CPU ではサポートしていない命令 ( rdtsc ) を使っていますので，486 以前の CPU ではお使いになれません．( CPU 種識別をサボっているため，不正終了します (^_^;) )
+	<li>デスクトップ PC など CPU 周波数が変化しないはずの PC でもクロック数表示の下の桁が細かく変動しますが，これは Windows のタイマー精度が悪いせいです．
+</ul>
+
+<hr>
+<h2>変更履歴</h2>
+<dl>
+	<dt>2002/11/27 v1.02
+	<dd>v1.01 の修正を排除(爆)<br>
+		GHz クロックにやっと対応(誘爆) 公開当時は 1GHz オーバーの CPU が出るなんて予想だにしなかったもんなー(笑) (それでも 9.999GHz までしか持たないんですが)
+	<p>
+	<dt>1999/03/02 v1.01
+	<dd>正確なクロック数が，きりのいい数字と比べておよそ 0.4% ぐらい少なく計測される場合が多かったので ( つまり 400MHz のマシンで 398 などと表示される )，1MHz = 996,000Hz として計算したクロック数を表示するようにした．
+	<p>
+	<dt>1998/10/01 v1.00
+	<dd>最初の公開バージョン
+</dl>
+
+</BODY>
+</HTML>
